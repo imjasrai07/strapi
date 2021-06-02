@@ -9,7 +9,7 @@ const program = new commander.Command(packageJson.name);
 
 program
   .version(packageJson.version)
-  .arguments('<directory> <starterurl>')
+  .arguments('[directory], [starterurl]')
   .option('--use-npm', 'Force usage of npm instead of yarn to create the project')
   .option('--debug', 'Display database connection error')
   .option('--quickstart', 'Quickstart app creation')
@@ -35,8 +35,6 @@ program
       process.exit(1);
     });
   });
-
-program.exitOverride();
 
 try {
   program.parse(process.argv);
